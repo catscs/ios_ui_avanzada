@@ -19,10 +19,32 @@ class TopicCellViewModel: CellViewModel {
     let topic: Topic
     var textLabelText: String?
     var topicImage: UIImage?
+    var createAt: String?
+    var messages: String?
+    var users: String?
     
     init(topic: Topic) {
         self.topic = topic
         textLabelText = topic.title
+        messages = "\(topic.posters.count)"
+        users = "\(topic.highestPostNumber)"
+                
+        let inputFormat = "YYYY-MM-dd'T'HH:mm:ss.SSSZ"
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "es_ES")
+        dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
+        dateFormatter.dateFormat = inputFormat
+        
+        if let date = dateFormatter.date(from: topic.createdAt) {
+            let outputFormat = "MMM d"
+            dateFormatter.dateFormat = outputFormat
+            let outputStringDate = dateFormatter.string(from: date)
+            createAt = outputStringDate
+        }
+        
+
+        
+        
         super.init()
         guard let imageUrl = topic.imageURL else {
             topicImage = UIImage(named: "avatar")

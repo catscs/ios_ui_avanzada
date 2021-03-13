@@ -92,8 +92,11 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="creaateAt" destination="m0H-I2-8DO" id="TFI-yI-nA1"/>
                 <outlet property="img" destination="49q-jx-ol9" id="tOA-zk-Psw"/>
                 <outlet property="label" destination="KYb-vU-1kw" id="TVa-Pv-oyT"/>
+                <outlet property="messages" destination="UGD-Tc-fa9" id="jpo-FH-gvx"/>
+                <outlet property="users" destination="ZYX-LI-oAW" id="5ZC-hK-Pa8"/>
             </connections>
             <point key="canvasLocation" x="84.782608695652186" y="129.57589285714286"/>
         </tableViewCell>

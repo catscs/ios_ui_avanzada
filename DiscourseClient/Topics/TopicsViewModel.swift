@@ -45,6 +45,7 @@ class TopicsViewModel {
             }
         }
     }
+    
 
     func viewWasLoaded() {
         fetchTopicsAndReloadUI()

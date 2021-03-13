@@ -15,7 +15,7 @@ class HeaderViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        viewContent.layer.cornerRadius = 10
+        viewContent.layer.cornerRadius = 8
         viewContent.clipsToBounds = true
     }
     

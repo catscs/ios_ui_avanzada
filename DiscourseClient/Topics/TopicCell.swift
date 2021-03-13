@@ -13,13 +13,18 @@ class TopicCell: UITableViewCell {
     
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var img: UIImageView!
-    
+    @IBOutlet weak var creaateAt: UILabel!
+    @IBOutlet weak var users: UILabel!
+    @IBOutlet weak var messages: UILabel!
     
     var viewModel: TopicCellViewModel? {
         didSet {
             guard let viewModel = viewModel else { return }
            
             label?.text = viewModel.textLabelText
+            creaateAt.text = viewModel.createAt
+            messages.text = viewModel.messages
+            users.text = viewModel.users
             img.image = viewModel.topicImage
         }
     }
