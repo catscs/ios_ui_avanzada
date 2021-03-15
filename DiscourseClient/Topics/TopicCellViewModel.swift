@@ -26,8 +26,8 @@ class TopicCellViewModel: CellViewModel {
     init(topic: Topic) {
         self.topic = topic
         textLabelText = topic.title
-        messages = "\(topic.posters.count)"
-        users = "\(topic.highestPostNumber)"
+        messages = "\(topic.postsCount)"
+        users = "\(topic.posters.count)"
                 
         let inputFormat = "YYYY-MM-dd'T'HH:mm:ss.SSSZ"
         let dateFormatter = DateFormatter()
@@ -35,7 +35,7 @@ class TopicCellViewModel: CellViewModel {
         dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
         dateFormatter.dateFormat = inputFormat
         
-        if let date = dateFormatter.date(from: topic.createdAt) {
+        if let date = dateFormatter.date(from: topic.lastPostedAt) {
             let outputFormat = "MMM d"
             dateFormatter.dateFormat = outputFormat
             let outputStringDate = dateFormatter.string(from: date)
